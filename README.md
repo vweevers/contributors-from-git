@@ -11,10 +11,10 @@ Currently there is no way to specify a custom branch.
 
 [![Build Status][travis_svg]][travis_link] [![Dependency Status][dm_svg]][dm_url]
 
-[travis_svg]: https://travis-ci.org/davidlinse/git-contributors.js.svg?branch=master
-[travis_link]: https://travis-ci.org/davidlinse/git-contributors.js
-[dm_svg]: https://david-dm.org/davidlinse/git-contributors.js.svg
-[dm_url]: https://david-dm.org/davidlinse/git-contributors.js
+[travis_svg]: https://travis-ci.org/vweevers/git-sorted-contributors.svg?branch=master
+[travis_link]: https://travis-ci.org/vweevers/git-sorted-contributors
+[dm_svg]: https://david-dm.org/vweevers/git-sorted-contributors.svg
+[dm_url]: https://david-dm.org/vweevers/git-sorted-contributors
 
 
 #### Usage
