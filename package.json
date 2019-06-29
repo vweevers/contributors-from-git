@@ -1,6 +1,6 @@
 {
   "name": "contributors-from-git",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "description": "Get an array of contributors from a git working tree",
   "license": "MIT",
   "main": "index.js",
