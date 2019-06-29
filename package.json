@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -t 250 test/test.*.js"
+    "test": "standard && mocha -t 250 test/test.*.js"
   },
   "author": {
     "name": "David Linse",
@@ -18,9 +18,11 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "dirty-chai": "^2.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^6.1.4",
-    "sinon": "^7.3.2"
+    "sinon": "^7.3.2",
+    "standard": "^12.0.1"
   },
   "homepage": "https://github.com/vweevers/git-sorted-contributors",
   "repository": {

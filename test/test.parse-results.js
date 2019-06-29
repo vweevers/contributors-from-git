@@ -1,164 +1,111 @@
-/* global describe, it, beforeEach, afterEach */
-/* jshint expr:true, indent:2, maxlen:92 */
+/* global describe, it, afterEach */
+'use strict'
 
-'use strict';
+var fs = require('fs')
+var sinon = require('sinon')
+var chai = require('chai')
+var git = require('../lib/gitlog')
+var expect = chai.expect
+var GitContributors = require('..').GitContributors
 
-var fs     = require('fs'),
-    sinon  = require('sinon'),
-    chai   = require('chai'),
-    git    = require('../lib/gitlog'),
-    expect = chai.expect,
-
-    GitContributors = require('..').GitContributors;
-
+// expect(x).to.be.true => expect(x).to.be.true()
+chai.use(require('dirty-chai'))
 
 var readIn = function readIn (file) {
-  return fs.readFileSync(file, 'utf-8');
-};
+  return fs.readFileSync(file, 'utf-8')
+}
 
 var stubFixture = function stubFixture (file) {
-  sinon.stub(git, 'log').returns(readIn(file));
-};
-
+  sinon.stub(git, 'log').returns(readIn(file))
+}
 
 describe('git-sorted-contributors', function () {
-
   describe('#list()', function () {
-
-    beforeEach(function () {
-    });
-
     afterEach(function () {
-      git.log.restore();
-    });
-
+      git.log.restore()
+    })
 
     it('can parse a single user commit', function (done) {
+      var inFixture = 'test/fixtures/actual/single-user-single-commit.log'
+      var outFixture = 'test/fixtures/expected/single-user-single-commit.json'
 
-      var inFixture, outFixture;
-
-      inFixture = 'test/fixtures/actual/single-user-single-commit.log';
-
-      outFixture = 'test/fixtures/expected/single-user-single-commit.json';
-
-      stubFixture(inFixture);
+      stubFixture(inFixture)
 
       GitContributors.list('.', function (err, result) {
-
-        expect(err).to.not.exist;
-
-        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)));
-
-        done();
-      });
-
-    }); //it
-
+        expect(err).to.not.exist()
+        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)))
+        done()
+      })
+    })
 
     it('can parse multiple commits from a single user', function (done) {
+      var inFixture = 'test/fixtures/actual/single-user-multiple-commit.log'
+      var outFixture = 'test/fixtures/expected/single-user-multiple-commit.json'
 
-      var inFixture, outFixture;
-
-      inFixture = 'test/fixtures/actual/single-user-multiple-commit.log';
-
-      outFixture = 'test/fixtures/expected/single-user-multiple-commit.json';
-
-      stubFixture(inFixture);
+      stubFixture(inFixture)
 
       GitContributors.list('.', function (err, result) {
-
-        expect(err).to.not.exist;
-
-        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)));
-
-        done();
-      });
-
-    }); //it
-
+        expect(err).to.not.exist()
+        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)))
+        done()
+      })
+    })
 
     it('can parse same user with different emails ', function (done) {
+      var inFixture = 'test/fixtures/actual/single-user-multiple-commit-different-mail.log'
+      var outFixture = 'test/fixtures/expected/single-user-multiple-commit-different-mail.json'
 
-      var inFixture, outFixture;
-
-      inFixture = 'test/fixtures/actual/single-user-multiple-commit-different-mail.log';
-
-      outFixture = 'test/fixtures/expected/single-user-multiple-commit-different-mail.json';
-
-      stubFixture(inFixture);
+      stubFixture(inFixture)
 
       GitContributors.list('.', function (err, result) {
-
-        expect(err).to.not.exist;
-
-        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)));
-
-        done();
-      });
-
-    }); //it
-
+        expect(err).to.not.exist()
+        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)))
+        done()
+      })
+    })
 
     it('can parse multiple user with same email', function (done) {
+      var inFixture = 'test/fixtures/actual/multi-user-same-mail.log'
+      var outFixture = 'test/fixtures/expected/multi-user-same-mail.json'
 
-      var inFixture, outFixture;
-
-      inFixture = 'test/fixtures/actual/multi-user-same-mail.log';
-
-      outFixture = 'test/fixtures/expected/multi-user-same-mail.json';
-
-      stubFixture(inFixture);
+      stubFixture(inFixture)
 
       GitContributors.list('.', function (err, result) {
-
-        expect(err).to.not.exist;
-
-        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)));
-
-        done();
-      });
-    }); //it
-  });
+        expect(err).to.not.exist()
+        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)))
+        done()
+      })
+    })
+  })
 
   describe('when given wrong arguments', function () {
-
     it('should not throw when no path given via string', function (done) {
-
       var f = function () {
-        GitContributors.list(null, function (/*err, result*/) {
-          done();
-        });
-      };
+        GitContributors.list(null, function (/* err, result */) {
+          done()
+        })
+      }
 
-      expect(f).to.not.throw();
-    });
-  });
+      expect(f).to.not.throw()
+    })
+  })
 
   describe('support for --format option', function () {
-
     afterEach(function () {
-      git.log.restore();
-    });
+      git.log.restore()
+    })
 
     it('markdown', function (done) {
+      var inFixture = 'test/fixtures/actual/single-user-multiple-commit.log'
+      var outFixture = 'test/fixtures/expected/single-user-multiple-commit.md'
 
-      var inFixture, outFixture;
+      stubFixture(inFixture)
 
-      inFixture = 'test/fixtures/actual/single-user-multiple-commit.log';
-
-      outFixture = 'test/fixtures/expected/single-user-multiple-commit.md';
-
-      stubFixture(inFixture);
-
-      GitContributors.list({cwd:'.', markdown: true}, function (err, result) {
-
-        expect(err).to.not.exist;
-
-        expect(result).to.deep.eql(readIn(outFixture));
-
-        done();
-      });
-    });
-  });
-
-});
+      GitContributors.list({ cwd: '.', markdown: true }, function (err, result) {
+        expect(err).to.not.exist()
+        expect(result).to.deep.eql(readIn(outFixture))
+        done()
+      })
+    })
+  })
+})
