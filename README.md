@@ -3,12 +3,10 @@
 > **Get an array of contributors from a git working tree.**  
 > Requires git 1.7+. Forked from `git-contributors` to reduce its scope (no output formatters, command-line interface, sorting or filtering).
 
-[![Build Status][travis_svg]][travis_link] [![Dependency Status][dm_svg]][dm_url]
-
-[travis_svg]: https://travis-ci.org/vweevers/contributors-from-git.svg?branch=master
-[travis_link]: https://travis-ci.org/vweevers/contributors-from-git
-[dm_svg]: https://david-dm.org/vweevers/contributors-from-git.svg
-[dm_url]: https://david-dm.org/vweevers/contributors-from-git
+[![npm](https://img.shields.io/npm/v/contributors-from-git.svg)](https://www.npmjs.com/package/contributors-from-git)
+[![Node version](https://img.shields.io/node/v/contributors-from-git.svg)](https://www.npmjs.com/package/contributors-from-git)
+[![Build Status](https://travis-ci.org/vweevers/contributors-from-git.svg)](https://travis-ci.org/vweevers/contributors-from-git)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Usage
 
