@@ -89,23 +89,4 @@ describe('git-sorted-contributors', function () {
       expect(f).to.not.throw()
     })
   })
-
-  describe('support for --format option', function () {
-    afterEach(function () {
-      git.log.restore()
-    })
-
-    it('markdown', function (done) {
-      var inFixture = 'test/fixtures/actual/single-user-multiple-commit.log'
-      var outFixture = 'test/fixtures/expected/single-user-multiple-commit.md'
-
-      stubFixture(inFixture)
-
-      GitContributors.list({ cwd: '.', markdown: true }, function (err, result) {
-        expect(err).to.not.exist()
-        expect(result).to.deep.eql(readIn(outFixture))
-        done()
-      })
-    })
-  })
 })

@@ -17,16 +17,12 @@ npm install git-sorted-contributors
 ```
 
 ```js
-var GitContributors = require('git-sorted-contributors').GitContributors;
+var GitContributors = require('git-sorted-contributors').GitContributors
 
-var opts = '/path/to/repository-dir';
-    // or
-    opts = {cwd: '/path/to/repository-dir', markdown: false};
-
-GitContributors.list(opts, function (err, result) {
-    if (err) { throw err; }
-    console.log(JSON.stringify(result, null, 2));
-});
+GitContributors.list('path/to/repository', function (err, result) {
+  if (err) throw err
+  console.log(result)
+})
 ```
 
 Which gives you an array of results, sorted by commit count in descending order:
@@ -38,6 +34,12 @@ Which gives you an array of results, sorted by commit count in descending order:
   { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 3.8 }
 ]
 ```
+
+## API
+
+### `GitContributors.list(cwd[, options], cb)`
+
+Options: yet to document.
 
 ## License
 

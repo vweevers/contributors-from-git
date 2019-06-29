@@ -55,10 +55,6 @@ var processLog = function (stdout) {
 var format = function (data) {
   var deferred = Q.defer()
 
-  if (program.markdown === true) {
-    data = require('./lib/markdown-reporter').format(data, program)
-  }
-
   if (program.json === true) {
     data = JSON.stringify(data)
   }
@@ -90,15 +86,15 @@ var program = {
 
 var GitContributors = function GitContributors () {}
 
-GitContributors.prototype.list = function (opts, cb) {
-  program.markdown = null
-  program.json = null
-
-  if (_.isString(opts)) {
-    program.cwd = opts
-  } else {
-    program = _.merge(program, opts)
+GitContributors.prototype.list = function (cwd, opts, cb) {
+  if (typeof opts === 'function') {
+    cb = opts
+    opts = null
   }
+
+  // TODO (refactor): don't use a semi-global and don't mutate the defaults
+  program.json = null
+  program = Object.assign({}, program, opts, { cwd })
 
   Q()
     .then(verifyRepositoryExists)
