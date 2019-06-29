@@ -1,13 +1,7 @@
-### git-contributors.js (0.2.3)
+# git-sorted-contributors
 
-A Node.js module providing contribution stats for your git repository.
-
-This module utilize `$ git log --pretty=%an` to calculate and add the amount
-of percental contribution of each committer to the output.
-
-_Note:_<br/>
-Please be aware that the current checked out branch is inspected.
-Currently there is no way to specify a custom branch.
+> **Get contributors from a git repository sorted by commit count.**  
+> Requires git 1.7+. Utilizes `git log --pretty=%an` to sum the contributions of each committer.
 
 [![Build Status][travis_svg]][travis_link] [![Dependency Status][dm_svg]][dm_url]
 
@@ -16,15 +10,14 @@ Currently there is no way to specify a custom branch.
 [dm_svg]: https://david-dm.org/vweevers/git-sorted-contributors.svg
 [dm_url]: https://david-dm.org/vweevers/git-sorted-contributors
 
-
-#### Usage
+## Usage
 
 ```
-npm install git-contributors
+npm install git-sorted-contributors
 ```
 
 ```js
-var GitContributors = require('git-contributors').GitContributors;
+var GitContributors = require('git-sorted-contributors').GitContributors;
 
 var opts = '/path/to/repository-dir';
     // or
@@ -36,25 +29,17 @@ GitContributors.list(opts, function (err, result) {
 });
 ```
 
-.. which gives you an _sorted_ array of results:
+Which gives you an array of results, sorted by commit count in descending order:
 
 ```js
 [
-  // sorted descending by commits (beautyfied)
   { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 76.9 },
   { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 19.2 },
   { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 3.8 }
 ]
 ```
 
-#### Requirements
-
-```sh
-$ node --version # 10.28+
-$ git --version # 1.7+
-```
-
-#### Licence
+## License
 
 (The MIT License)
 

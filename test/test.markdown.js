@@ -9,7 +9,7 @@ var fs     = require('fs'),
     git    = require('../lib/gitlog'),
     expect = chai.expect,
 
-    GitContributors = require('../').GitContributors;
+    GitContributors = require('..').GitContributors;
 
 
 var readIn = function readIn (file) {
@@ -21,7 +21,7 @@ var stubFixture = function stubFixture (file) {
 };
 
 
-describe('git-contributors', function () {
+describe('git-sorted-contributors', function () {
 
   describe('with --markdown option', function () {
 

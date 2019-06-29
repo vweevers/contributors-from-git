@@ -1,36 +1,17 @@
 {
+  "name": "git-sorted-contributors",
   "version": "0.2.3",
-  "name": "git-contributors",
-  "description": "A nodejs module providing contribution stats for your git repository",
+  "description": "Get contributors from a git repository sorted by commit count",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "mocha -t 250 test/test.*.js"
   },
-  "homepage": "https://github.com/vweevers/git-sorted-contributors",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vweevers/git-sorted-contributors.git"
-  },
-  "bugs": {
-    "url": "https://github.com/vweevers/git-sorted-contributors/issues"
-  },
-  "engine": {
-    "node": ">= 0.10.28"
-  },
-  "keywords": [
-    "git",
-    "contributors",
-    "stats",
-    "nodejs",
-    "stat",
-    "repository"
-  ],
   "author": {
     "name": "David Linse",
     "email": "davidlinse@gmail.com",
     "url": "http://davidlinse.github.io"
   },
-  "license": "MIT",
   "dependencies": {
     "lodash": "~4.17.11",
     "q": "~2.0.3"
@@ -40,5 +21,24 @@
     "istanbul": "^0.4.5",
     "mocha": "^6.1.4",
     "sinon": "^7.3.2"
-  }
+  },
+  "homepage": "https://github.com/vweevers/git-sorted-contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vweevers/git-sorted-contributors.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vweevers/git-sorted-contributors/issues"
+  },
+  "engines": {
+    "node": ">= 0.10.28"
+  },
+  "keywords": [
+    "git",
+    "contributors",
+    "stats",
+    "nodejs",
+    "stat",
+    "repository"
+  ]
 }

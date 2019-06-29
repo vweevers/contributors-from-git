@@ -7,10 +7,10 @@ var _  = require('lodash'),
 chai   = require('chai'),
 expect = chai.expect,
 
-GitContributors = require('../').GitContributors;
+GitContributors = require('..').GitContributors;
 
 
-describe('git-contributors', function () {
+describe('git-sorted-contributors', function () {
 
   describe('api', function () {
 
