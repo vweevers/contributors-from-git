@@ -7,6 +7,9 @@
   "scripts": {
     "test": "standard && mocha -t 250 test/index.js"
   },
+  "files": [
+    "index.js"
+  ],
   "author": {
     "name": "David Linse",
     "email": "davidlinse@gmail.com",
