@@ -32,13 +32,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash": "~3.9.3",
+    "lodash": "~4.17.11",
     "q": "~2.0.3"
   },
   "devDependencies": {
-    "chai": "~1.9.1",
-    "istanbul": "^0.3.0",
-    "mocha": "^1.21.4",
-    "sinon": "~1.10.0"
+    "chai": "^4.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.1.4",
+    "sinon": "^7.3.2"
   }
 }
