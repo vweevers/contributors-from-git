@@ -1,7 +1,7 @@
 # contributors-from-git
 
 > **Get an array of contributors from a git working tree.**  
-> Requires git 1.7+. Forked from `git-contributors` to reduce its scope (no output formatters, command-line interface, sorting or filtering).
+> Requires git 1.7+. Forked from [`git-contributors`](https://github.com/davidlinse/git-contributors.js) to reduce its scope (no output formatters, command-line interface, sorting or filtering).
 
 [![npm](https://img.shields.io/npm/v/contributors-from-git.svg)](https://www.npmjs.com/package/contributors-from-git)
 [![Node version](https://img.shields.io/node/v/contributors-from-git.svg)](https://www.npmjs.com/package/contributors-from-git)
