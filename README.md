@@ -41,4 +41,4 @@ The `dir` argument must resolve to a git working tree.
 
 ## License
 
-[MIT][LICENSE] © 2019 Vincent Weevers, © 2014 David Linse.
+[MIT](LICENSE) © 2019 Vincent Weevers, © 2014 David Linse.
