@@ -1,6 +1,6 @@
 ### git-contributors.js (0.2.3)
 
-A [_Node.js_][nodejs] module providing contribution stats for your git repository.
+A Node.js module providing contribution stats for your git repository.
 
 This module utilize `$ git log --pretty=%an` to calculate and add the amount
 of percental contribution of each committer to the output.
@@ -19,16 +19,11 @@ Currently there is no way to specify a custom branch.
 
 #### Usage
 
-```sh
-$ npm install -g git-contributors
-$ git-contributors.js --help
-$ git-contributors.js [options] /path/to/repository-dir/
+```
+npm install git-contributors
 ```
 
-You can also `require` it somewhere in your node-module,
-
 ```js
-// your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
 
 var opts = '/path/to/repository-dir';
@@ -58,33 +53,6 @@ GitContributors.list(opts, function (err, result) {
 $ node --version # 10.28+
 $ git --version # 1.7+
 ```
-
-#### Dependencies
-* [commander][commander] (~2.3.0)
-* [lodash.js][lodash] (~2.4.1)
-
-
-#### Tests
-
-```sh
-$ npm test
-// or
-$ grunt test
-// or
-$ mocha -R list
-```
-
-[![NPM](https://nodei.co/npm/git-contributors.svg?downloads=true&stars=true)](https://nodei.co/npm/git-contributors/)
-
-
-[semver]: http://semver.org
-[lodash]: http://lodash.com
-[mocha]: http://mochajs.org/
-[chai]: http://chaijs.com
-[sinon]: http://sinonjs.org
-[plato]: https://github.com/es-analysis/plato
-[nodejs]: http://nodejs.org
-[commander]: https://github.com/visionmedia/commander.js
 
 #### Licence
 

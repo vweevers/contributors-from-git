@@ -2,11 +2,7 @@
   "version": "0.2.3",
   "name": "git-contributors",
   "description": "A nodejs module providing contribution stats for your git repository",
-  "preferGlobal": true,
   "main": "index.js",
-  "bin": {
-    "git-contributors": "bin/git-contributors"
-  },
   "scripts": {
     "test": "mocha -t 250 test/test.*.js"
   },
@@ -35,10 +31,8 @@
     "url": "http://davidlinse.github.io"
   },
   "license": "MIT",
-  "readmeFilename": "README.md",
   "dependencies": {
     "lodash": "~3.9.3",
-    "commander": "~2.8.1",
     "q": "~2.0.3"
   },
   "devDependencies": {
@@ -46,6 +40,5 @@
     "istanbul": "^0.3.0",
     "mocha": "^1.21.4",
     "sinon": "~1.10.0"
-  },
-  "contributors": []
+  }
 }
