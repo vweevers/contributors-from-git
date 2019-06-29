@@ -2,7 +2,6 @@
   {
     "commits": 3,
     "name": "John Doe",
-    "email": "john@doe.com",
-    "percent": 100
+    "email": "john@doe.com"
   }
 ]

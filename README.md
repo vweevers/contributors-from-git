@@ -1,45 +1,45 @@
-# git-sorted-contributors
+# contributors-from-git
 
-> **Get contributors from a git repository sorted by commit count.**  
-> Requires git 1.7+. Utilizes `git log --pretty=%an` to sum the contributions of each committer.
+> **Get an array of contributors from a git working tree.**  
+> Requires git 1.7+. Forked from `git-contributors` to reduce its scope (no output formatters, command-line interface, sorting or filtering).
 
 [![Build Status][travis_svg]][travis_link] [![Dependency Status][dm_svg]][dm_url]
 
-[travis_svg]: https://travis-ci.org/vweevers/git-sorted-contributors.svg?branch=master
-[travis_link]: https://travis-ci.org/vweevers/git-sorted-contributors
-[dm_svg]: https://david-dm.org/vweevers/git-sorted-contributors.svg
-[dm_url]: https://david-dm.org/vweevers/git-sorted-contributors
+[travis_svg]: https://travis-ci.org/vweevers/contributors-from-git.svg?branch=master
+[travis_link]: https://travis-ci.org/vweevers/contributors-from-git
+[dm_svg]: https://david-dm.org/vweevers/contributors-from-git.svg
+[dm_url]: https://david-dm.org/vweevers/contributors-from-git
 
 ## Usage
 
 ```
-npm install git-sorted-contributors
+npm install contributors-from-git
 ```
 
 ```js
-var GitContributors = require('git-sorted-contributors').GitContributors
+var contributors = require('contributors-from-git')
 
-GitContributors.list('path/to/repository', function (err, result) {
+contributors('.', function (err, result) {
   if (err) throw err
   console.log(result)
 })
 ```
 
-Which gives you an array of results, sorted by commit count in descending order:
+This yields an array of contributors:
 
 ```js
 [
-  { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 76.9 },
-  { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 19.2 },
-  { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 3.8 }
+  { commits: 40, name: 'Maja',  email: 'maja@hive' },
+  { commits: 10, name: 'Flip',  email: 'flip@meadow' },
+  { commits: 80, name: 'Willi', email: 'willi@sunflower' }
 ]
 ```
 
 ## API
 
-### `GitContributors.list(cwd[, options], cb)`
+### `contributors(dir, callback)`
 
-Options: yet to document.
+The `dir` argument must resolve to a git working tree.
 
 ## License
 

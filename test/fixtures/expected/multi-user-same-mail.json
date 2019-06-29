@@ -2,25 +2,21 @@
   {
     "commits": 4,
     "email": "john@doe.org",
-    "name": "John Doe",
-    "percent": 40
+    "name": "John Doe"
   },
   {
     "commits": 2,
     "email": "john@doe.com",
-    "name": "John Doe1",
-    "percent": 20
+    "name": "John Doe1"
   },
   {
     "commits": 2,
     "email": "john@doe.com",
-    "name": "John Doe2",
-    "percent": 20
+    "name": "John Doe2"
   },
   {
     "commits": 2,
     "email": "john@doe.com",
-    "name": "John Doe3",
-    "percent": 20
+    "name": "John Doe3"
   }
 ]
