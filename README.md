@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/v/contributors-from-git.svg)](https://www.npmjs.com/package/contributors-from-git)
 [![Node version](https://img.shields.io/node/v/contributors-from-git.svg)](https://www.npmjs.com/package/contributors-from-git)
 [![Build Status](https://travis-ci.org/vweevers/contributors-from-git.svg)](https://travis-ci.org/vweevers/contributors-from-git)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Greenkeeper badge](https://badges.greenkeeper.io/vweevers/contributors-from-git.svg)](https://greenkeeper.io/)
 
 ## Usage
 
