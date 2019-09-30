@@ -47,7 +47,7 @@ describe('contributors-from-git', function () {
 
     it('yields an error if dir is not a git working tree', function (done) {
       contributors(tempy.directory(), function (err) {
-        expect(err.message).to.match(/Not a git repository/)
+        expect(err.message).to.match(/not a git repository/i)
         done()
       })
     })
