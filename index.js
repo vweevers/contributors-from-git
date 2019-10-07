@@ -13,7 +13,7 @@ function contributors (dir, opts, callback) {
   const log = (opts && opts.log) || gitlog
 
   log({ cwd, maxBuffer: 32 * 1024 * 1024 }, function (err, stdout) {
-    if (/setup_git_env called without repository/i.test(err)) {
+    if (/called without repository|outside repository/i.test(err)) {
       return callback(new Error('Not a git repository: ' + cwd))
     } else if (/bad revision/i.test(err)) {
       return callback(new Error('Current branch does not have any commits yet'))
@@ -26,7 +26,7 @@ function contributors (dir, opts, callback) {
 }
 
 function gitlog (opts, callback) {
-  exec('git shortlog -se HEAD --', opts, callback)
+  exec('git shortlog -se HEAD -- .', opts, callback)
 }
 
 function parse (stdout) {
