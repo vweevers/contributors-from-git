@@ -68,7 +68,7 @@ describe('contributors-from-git', function () {
 
   describe('contributors()', function () {
     it('can parse shortlog', function (done) {
-      const inFixture = 'test/fixtures/a.log'
+      const inFixture = 'test/fixtures/a'
       const outFixture = 'test/fixtures/a.json'
 
       contributors('.', { log: mockLog(inFixture) }, function (err, result) {
