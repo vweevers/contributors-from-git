@@ -13,27 +13,31 @@ function contributors (dir, opts, callback) {
   const log = (opts && opts.log) || gitlog
 
   log({ cwd, maxBuffer: 32 * 1024 * 1024 }, function (err, stdout) {
-    if (err) return callback(err)
+    if (/setup_git_env called without repository/i.test(err)) {
+      return callback(new Error('Not a git repository: ' + cwd))
+    } else if (/bad revision/i.test(err)) {
+      return callback(new Error('Current branch does not have any commits yet'))
+    } else if (err) {
+      return callback(err)
+    }
 
     callback(null, parse(stdout))
   })
 }
 
 function gitlog (opts, callback) {
-  exec('git log --pretty="%an %ae"', opts, callback)
+  exec('git shortlog -se HEAD --', opts, callback)
 }
 
 function parse (stdout) {
-  const entries = stdout.split('\n').filter(Boolean)
-  const unique = Array.from(new Set(entries))
+  return stdout.split('\n').filter(Boolean).map(function (line) {
+    line = line.trim()
 
-  return unique.map(function (committer) {
-    const a = committer.split(' ')
-    const email = a.pop()
-    const name = a.join(' ')
-    const commits = entries.filter(function (e) {
-      return e.indexOf(name) > -1 && e.indexOf(email) > -1
-    }).length
+    const ia = line.indexOf('\t')
+    const ib = line.lastIndexOf('<')
+    const name = line.slice(ia + 1, ib - 1)
+    const email = line.slice(ib + 1, -1)
+    const commits = parseInt(line.slice(0, ia), 10)
 
     return { name, email, commits }
   })

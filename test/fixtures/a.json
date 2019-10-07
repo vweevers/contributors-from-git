@@ -1,0 +1,17 @@
+[
+  {
+    "name": "First Foo",
+    "email": "a@a",
+    "commits": 259
+  },
+  {
+    "name": "Second Foo",
+    "email": "bb@b",
+    "commits": 1
+  },
+  {
+    "name": "Third < Foo",
+    "commits": 18,
+    "email": "c@cc"
+  }
+]

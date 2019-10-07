@@ -67,42 +67,9 @@ describe('contributors-from-git', function () {
   })
 
   describe('contributors()', function () {
-    it('can parse a single user commit', function (done) {
-      const inFixture = 'test/fixtures/actual/single-user-single-commit.log'
-      const outFixture = 'test/fixtures/expected/single-user-single-commit.json'
-
-      contributors('.', { log: mockLog(inFixture) }, function (err, result) {
-        expect(err).to.not.exist()
-        expect(result).to.deep.equal(JSON.parse(read(outFixture)))
-        done()
-      })
-    })
-
-    it('can parse multiple commits from a single user', function (done) {
-      const inFixture = 'test/fixtures/actual/single-user-multiple-commit.log'
-      const outFixture = 'test/fixtures/expected/single-user-multiple-commit.json'
-
-      contributors('.', { log: mockLog(inFixture) }, function (err, result) {
-        expect(err).to.not.exist()
-        expect(result).to.deep.equal(JSON.parse(read(outFixture)))
-        done()
-      })
-    })
-
-    it('can parse same user with different emails ', function (done) {
-      const inFixture = 'test/fixtures/actual/single-user-multiple-commit-different-mail.log'
-      const outFixture = 'test/fixtures/expected/single-user-multiple-commit-different-mail.json'
-
-      contributors('.', { log: mockLog(inFixture) }, function (err, result) {
-        expect(err).to.not.exist()
-        expect(result).to.deep.equal(JSON.parse(read(outFixture)))
-        done()
-      })
-    })
-
-    it('can parse multiple user with same email', function (done) {
-      const inFixture = 'test/fixtures/actual/multi-user-same-mail.log'
-      const outFixture = 'test/fixtures/expected/multi-user-same-mail.json'
+    it('can parse shortlog', function (done) {
+      const inFixture = 'test/fixtures/a.log'
+      const outFixture = 'test/fixtures/a.json'
 
       contributors('.', { log: mockLog(inFixture) }, function (err, result) {
         expect(err).to.not.exist()
